@@ -49,11 +49,7 @@
                     </p>
                 </section>
 				<section>
-                    <h2>Before the introduction, do you know?</h2>
-					<ul class="pull-down">
-						<li>What is CSS?</li>
-						<li>Why use CSS?</li>
-					</ul>
+                    <h2>What is CSS?</h2>
                 </section>
                 <section>
                     <h2>What is CSS</h2>
@@ -61,6 +57,9 @@
                         <li>Cascading Style Sheets (CSS) is a language for specifying how documents are presented to users.</li>
                         <li>The primary goal of CSS is to allow separation of a document's presentation characteristics (formatting) from the document's content.</li>
                     </ul>
+                </section>
+				<section>
+                    <h2>Why use CSS?</h2>
                 </section>
                 <section>
                     <h2>Why use CSS</h2>
@@ -73,40 +72,154 @@
                     </ul>
                 </section>
                 <section>
-                    <h2>Exercise 1</h2>
-                    <p>What does the following CSS selector match</p>
+                    <h2>Find bugs</h2>
                     <pre><code class="css">
-                        .miniGuide #programInformationIcon,
-                        .microEpg #programInformationIcon {
-                            background-position: 0px -180px;
-                        }
-                    </code></pre>
-                </section>
-                <section>
-                    <h2>Exercise 2</h2>
-                    <p>Find bugs</p>
-                    <pre><code class="css">
-                        p {
-                          margin: 5px 10px
-                          font: arial;
-                          text-align: top;
-                          color: blue;
-                        }
+p {
+  margin: 5px 10px
+  font: arial;
+  text-align: top;
+  color: blue;
+a {
+  display: outline;
+  transform: scale(1.2), rotate(-10deg);
+  animation: animation(delay-opacity 230ms ease-in);
+}
                     </code></pre>
                 </section>
 				<section>
 					<h2>CSS3</h2>
-                    <img src="img/CSS_Modules_and_Snapshots.png">
-                    <aside class="notes">
-                        CSS was developed in levels, CSS1 is now obsolete,
-                        CSS2.1 is a recommendation,
-                        and CSS3, now split into smaller modules, which describe different parts of the technology set.
-                        Some of these modules are stable, whereas some are in an experimental state and don't have much support across browsers.</p>
-                    </aside>
+                    <img src="img/CSS_Modules.png">
 				</section>
+				<section>
+				    <p>Rather than attempting to shove dozens of updates into a single monolithic specification, it will be much easier and more efficient to be able to update individual pieces of the specification. Modules will enable CSS to be updated in a more timely and precise fashion, thus allowing for a more flexible and timely evolution of the specification as a whole.</p>
+                </section>
+				<section>
+					<h2>Time to enjoy CSS3 now</h2>
+					<ul class="pull-down">
+	                    <li>Understanding Transitions</li>
+                        <li>Understanding transforms</li>
+						<li>Using Animations</li>
+                    </ul>
+                </section>
+				<section>
+                    <h3>Understanding Transitions</h3>
+                    <p>CSS Transitions allow property changes in CSS values to occur smoothly over a specified duration.</p>
+                </section>
                 <section>
+                    <h3>Without Transition Properties</h3>
+                    <style>
+#foo {
+  color: white;
+  padding: 5px 10px;
+  background: #9c3;
+}
+#foo:hover {
+  background: red;
+}
+                    </style>
+                    <pre><code class="css">
+#foo {
+  color: white;
+  padding: 5px 10px;
+  background: #9c3;
+}
+#foo:hover {
+  background: red;
+}
+                    </code></pre>
+                    <a href="#" id="foo">Click me!</a>
+                </section>
+				<section>
+                    <h3>With Transition Properties</h3>
+                    <style>
+#foo2 {
+  color: white;
+  padding: 5px 10px;
+  background: #9c3;
+  transition-property: background;
+  transition-duration: 2s;
+  transition-timing-function: ease;
+}
+#foo2:hover {
+  background: red;
+}
+                    </style>
+                    <pre><code class="css">
+#foo2 {
+  color: white;
+  padding: 5px 10px;
+  background: #9c3;
+  /* The property to be transitioned (in this case, the background property */
+  transition-property: background;
+  /* How long the transition should last (2s) */
+  transition-duration: 2s;
+  /* How fast the transition happens over time (ease) */
+  transition-timing-function: ease;
+}
+#foo2:hover {
+  background: red;
+}
+                    </code></pre>
+                    <a href="#" id="foo2">Click me!</a>
+                </section>
+				<section>
+					<h3>Timing Functions</h3>
+					<p>The timing function value allows the speed of the transition to change over time by defining one of six possibilities: ease, linear, ease-in, ease-out, ease-in-out, and cubic-bezier (which allows you to define your own timing curve).</p>
+					<a href="http://cubic-bezier.com" target="_blank">Demo</a>
+				</section>
+				<section>
+                    <h3>Delaying It</h3>
+                    <style>
+#foo3 {
+  color: white;
+  padding: 5px 10px;
+  background: #9c3;
+  transition-property: background;
+  transition-duration: 2s;
+  transition-timing-function: ease;
+  transition-delay: 3s;
+}
+#foo3:hover {
+  background: red;
+}
+                    </style>
+                    <pre><code class="css">
+#foo3 {
+  color: white;
+  padding: 5px 10px;
+  background: #9c3;
+  transition-property: background;
+  transition-duration: 2s;
+  transition-timing-function: ease;
+  /* Delay the transition by 3s */
+  transition-delay: 3s;
+}
+#foo3:hover {
+  background: red;
+}
+                    </code></pre>
+                    <a href="#" id="foo3">Click me!</a>
+                </section>
+				<section>
+                    <h3>Shorthand Transition - All In One</h3>
+					<pre><code class="css">
+a.foo {
+  padding: 5px 10px;
+  background: #9c3;
+  transition: background 0.3s ease 0.5s;
+}
+a.foo:hover {
+  background: #690;
+}
+					</code></pre>
+                </section>
+                <section>
+                    <h3>Transition on Video</h3>
+                    <a href="http://letmespellitoutforyou.com/samples/transit_filter_video.html" target="_blank">Sample</a>
+                </section>
+				<section>
                     <h3>Understanding transforms</h3>
-                    <p>CSS transforms allows elements styled with CSS to be transformed (translate,scale,rotate) in two-dimensional or three-dimensional space.</p>
+                    <p>CSS transforms allows elements styled with CSS to be transformed (translate,scale,rotate,skew) in two-dimensional or three-dimensional space.</p>
                 </section>
                 <section>
                     <h3>Two-dimensional transform</h3>
@@ -117,6 +230,66 @@
                         }
                     </code></pre>
                 </section>
+				<section>
+					<h3>Applying the scale transform on hover</h3>
+					<pre><code class="css">
+ul.gallery li a:hover img {
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  transform: scale(1.5);
+}
+						</code></pre>
+						<ul class="gallery">
+						<li><a href="#"><img src="img/koala.jpg"></a></li>
+					</ul>
+					<style>
+ul li {
+	list-style: none;
+}
+
+ul.gallery img {
+	border: none;
+}
+					
+ul.gallery li a:hover img {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+}
+					</style>
+				</section>
+				<section>
+					<h3>How about multiple transform</h3>
+					<pre><code class="css">
+ul.gallery2 li a:hover img {
+  -webkit-transform: scale(1.5) rotate(-10deg);
+  -moz-transform: scale(1.5) rotate(-10deg);
+  -o-transform: scale(1.5) rotate(-10deg);
+  transform: scale(1.5) rotate(-10deg);
+}
+						</code></pre>
+						<ul class="gallery2">
+						<li><a href="#"><img src="img/koala.jpg"></a></li>
+					</ul>
+					<style>
+ul li {
+	list-style: none;
+}
+
+ul.gallery2 img {
+	border: none;
+}
+					
+ul.gallery2 li a:hover img {
+  -webkit-transform: scale(1.2) rotate(-10deg);
+  -moz-transform: scale(1.2) rotate(-10deg);
+  -o-transform: scale(1.2) rotate(-10deg);
+  transform: scale(1.2) rotate(-10deg);
+}
+					</style>
+				</section>
                 <section>
                     <h3>Three-dimensional transform</h3>
                     <img alt="Div with a rotateY transform, and perspective on its container" height="190" src="img/simple-perspective-example.png" width="210">
@@ -126,44 +299,6 @@
                         }
                     </code></pre>
                     <a href="https://dev.opera.com/articles/understanding-3d-transforms/rotate3d.html" target="_blank">Rotate 3D</a>
-                </section>
-                <section>
-                    <h3>Understanding Transitions</h3>
-                    <p>CSS3 transitions enables us to animate smoothly from the old state to the new state over time.</p>
-                </section>
-                <section>
-                    <h3>Transition properties</h3>
-                    <style>
-                        #myDiv a {
-                            color: white;
-                            transition-property: color;
-                            transition-duration: 0.7s;
-                            transition-timing-function: ease-in;
-                            transition-delay: 0.3s;
-                        }
-
-                        #myDiv a:hover {
-                            color: red;
-                        }
-                    </style>
-                    <pre><code class="css">
-                        a {
-                            color: white;
-                            transition-property: color;
-                            transition-duration: 0.7s;
-                            transition-timing-function: ease-in;
-                            transition-delay: 0.3s;
-                        }
-
-                        a:hover {
-                            color: red;
-                        }
-                    </code></pre>
-                    <div id="myDiv"><a href="#">Hello CSS3 Transition</a></div>
-                </section>
-                <section>
-                    <h3>Transition on Video</h3>
-                    <a href="http://letmespellitoutforyou.com/samples/transit_filter_video.html" target="_blank">Sample</a>
                 </section>
                 <section>
                     <h3>Using Animations</h3>
@@ -180,8 +315,11 @@
                         }
                     </code></pre>
                 </section>
+				<section>
+                    <img src="img/animation1.png">
+                </section>
                 <section>
-                    <h3>Animation properties</h3>
+                    <h3>Basic Animation Properties</h3>
                     <pre><code class="css">
                         div {
                             animation-name: wobble;
@@ -189,22 +327,16 @@
                             animation-timing-function: ease-in-out;
                             animation-delay: 0.5s;
                             animation-iteration-count: 2;
-                            animation-direction: alternate;
-                            animation-play-state: running;
-                            animation-fill-mode: forwards;
                         }
                     </code></pre>
+					<a href="http://daneden.github.io/animate.css" target="_blank">animate.css</a>
                 </section>
                 <section>
-                    <h3>Question</h3>
-                    <p>What’s the difference between CSS3 animations and JavaScript animations?</p>
+                    <h3>Final Exercise (Book as a prize)</h3>
+                    <p>Create a pure CSS3 Cycle Slider (Let's demo it in next workshop) </p>
+                    <a href="css3-slider/index.html" target="_blank">Example Pure CSS3 Cycle Slider</a>
                 </section>
-                <section>
-                    <h3>Question</h3>
-                    <p>How to create a pure CSS3 Cycle Slider using CSS3?</p>
-                    <a href="css3-slider/index.html" target="_blank">Pure CSS3 Cycle Slider</a>
-                </section>
-                <section>
+                <!--section>
                     <h3>Media Queries</h3>
                     <p>A media query consists of a media type and zero or more expressions that check for the conditions of particular media features.</p>
                 </section>
@@ -258,9 +390,11 @@
                         <li>Tablet: 2 column grid view</li>
                         <li>Netbook and Desktop: 4 column grid view</li>
                     </ul>
-                </section>
+                </section-->
                 <section>
                     <h2>Q & A</h2>
+                    <p>Why not use JavaScript instead?</p>
+                </section>
                 </section>
             </div>
         </div>
